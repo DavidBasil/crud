@@ -23,7 +23,7 @@ class ContactController extends Controller
 			'address' => $request->get('address'),
 			'phone' => $request->get('phone')
 		]);
-		return redirect()->back();
+		return redirect()->route('contact.index');
 	}
 
 	public function edit($id){
@@ -37,12 +37,18 @@ class ContactController extends Controller
 		$contact->address = request('address');		
 		$contact->phone = request('phone');
 		$contact->save();
-		return redirect()->to('/contacts');
+		return redirect()->route('contact.index');
 	}
 
 	public function view($id){
 		$contact = Contact::findOrFail($id);
 		return view('contact.view', compact('contact'));
+	}
+
+	public function delete($id){
+		$contact = Contact::findOrFail($id);
+		$contact->delete();
+		return redirect()->route('contact.index');
 	}
 
 }

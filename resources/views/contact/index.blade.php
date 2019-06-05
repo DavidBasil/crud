@@ -28,6 +28,10 @@
 													<a href="{{ route('contact.view', [$contact->id]) }}">
 														<button class="btn btn-primary">view</button>
 													</a>
+													<form action="{{ route('contact.delete', [$contact->id]) }}" method="post">
+														@csrf
+														<button type="submit" class="btn btn-danger">Delete</button>
+													</form>
 												</td>
 											</tr>
 											@endforeach
