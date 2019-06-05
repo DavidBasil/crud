@@ -7,6 +7,11 @@ use App\Contact;
 
 class ContactController extends Controller
 {
+	
+	public function index(){
+		$contacts = Contact::get();
+		return view('contact.index', compact('contacts'));
+	}
 
 	public function create(){
 		return view('contact.create');
