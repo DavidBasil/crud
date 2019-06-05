@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Contacts</div>
 								<div class="card-body">
@@ -22,8 +22,12 @@
 												<td>{{ $contact->address }}</td>	
 												<td>{{ $contact->phone }}</td>	
 												<td>
-													<button class="btn btn-success">Edit</button>
-													<button class="btn btn-primary">view</button>
+													<a href="{{ route('contact.edit', [$contact->id]) }}">
+														<button class="btn btn-success">Edit</button>
+													</a>
+													<a href="{{ route('contact.view', [$contact->id]) }}">
+														<button class="btn btn-primary">view</button>
+													</a>
 												</td>
 											</tr>
 											@endforeach

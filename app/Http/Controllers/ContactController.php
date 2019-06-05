@@ -26,4 +26,23 @@ class ContactController extends Controller
 		return redirect()->back();
 	}
 
+	public function edit($id){
+		$contact = Contact::findOrFail($id);
+		return view('contact.edit', compact('contact'));
+	}
+
+	public function update($id){
+		$contact = Contact::findOrFail($id);
+		$contact->name = request('name');
+		$contact->address = request('address');		
+		$contact->phone = request('phone');
+		$contact->save();
+		return redirect()->to('/contacts');
+	}
+
+	public function view($id){
+		$contact = Contact::findOrFail($id);
+		return view('contact.view', compact('contact'));
+	}
+
 }
