@@ -38,6 +38,12 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+											<li class="nav-item">
+												<a href="{{ route('contact.index') }}" class="nav-link">Contacts</a>
+											</li>
+											<li class="nav-item">
+												<a href="{{ route('contact.create') }}" class="nav-link">Create a contact</a>
+											</li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
